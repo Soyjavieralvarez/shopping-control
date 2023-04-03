@@ -1,6 +1,7 @@
 import React from "react";
 import NewBudget from "./NewBudget";
 import ControlBudget from "./ControlBudget";
+import logo from '../assets/img/logo-shopping.png'
 
 
 const Header = ({ 
@@ -9,7 +10,11 @@ const Header = ({
     isValidBudget,
     setIsValidBudget }) => {
   return (
-    <header>
+    <header className="header-box">
+    <img className='logo-shopping'
+  src={logo}
+  alt="logo de la empresa"
+  />
       <h1>Planificador de gastos</h1>
 
       {isValidBudget ? (

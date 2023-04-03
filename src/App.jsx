@@ -3,7 +3,11 @@ import Header from './components/Header'
 import Modal from './components/Modal';
 import newExpenseIcon from './assets/img/nuevo-gasto.svg'
 
+
 function App() {
+
+  
+
   const [budget, setBudget] = useState(0);
   const [isValidBudget, setIsValidBudget] = useState(false)
   const [modal, setModal] = useState(false)
@@ -33,7 +37,7 @@ function App() {
 
     {modal && <Modal
      setModal={setModal}
-      
+
      />}
    </div>
   )

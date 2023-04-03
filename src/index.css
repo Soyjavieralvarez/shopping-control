@@ -1,5 +1,5 @@
 :root {
-  --azul: #3b82f6;
+  --azul: #33a3ba;
   --blanco: #ffffff;
   --gris-claro: #f5f5f5;
   --gris: #94a3b8;
@@ -56,6 +56,22 @@ header h1 {
   text-transform: uppercase;
 }
 
+.header-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-shopping{
+  padding:10px;
+  width: 150px;
+  display: flex;
+  flex-direction: center;
+  align-items: center;
+  justify-content: center;
+
+}
+
 .formulario {
   width: 95%;
   margin: 0 auto;
@@ -99,7 +115,7 @@ header h1 {
   font-size: 1.6rem;
 }
 .formulario input[type="submit"] {
-  background-color: #1048a4;
+  background-color: var(--azul);
   border: none;
   padding: 1rem;
   text-align: center;
@@ -155,7 +171,6 @@ header h1 {
 }
 .contenedor-presupuesto {
   margin-top: -5rem;
-
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -1,6 +1,13 @@
+import { useState } from 'react'
 import closeIcon from '../assets/img/cerrar.svg'
 
 const Modal = ({setModal, animateModal, setAnimateModal}) => {
+
+    const [name, setName] = useState('')
+    const [quantity, setQuantity] = useState('')
+    const [category, setCategory] = useState('')
+
+
 
     const maskModal = () => {
         
@@ -29,6 +36,8 @@ const Modal = ({setModal, animateModal, setAnimateModal}) => {
           id="nombre"
           type="text"
           placeholder='Añade el nombre del gasto'
+          value={name}
+          onChange={e => setName(e.target.value)}
           />
         </div>
 
@@ -38,6 +47,8 @@ const Modal = ({setModal, animateModal, setAnimateModal}) => {
           id="cantidad"
           type="number"
           placeholder='Añade la cantidad del gasto: ej. 10€'
+          value={quantity}
+          onChange={e => setQuantity(Number(e.target.value))}
           />
         </div>
 
@@ -45,6 +56,8 @@ const Modal = ({setModal, animateModal, setAnimateModal}) => {
           <label htmlFor='cantegoría'>Cantegoría</label>
           <select
           id="categoria"
+          value={category}
+          onChange={e => setCategory(e.target.value)}
           >
           <option value="">---Selecciona la categoría---</option>
           <option value="carniceria">Carnicería</option>

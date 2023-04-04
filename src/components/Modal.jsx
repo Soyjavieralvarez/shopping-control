@@ -52,7 +52,7 @@ const Modal = ({setModal, animateModal, setAnimateModal, saveExpense}) => {
         {message && <Message tipo="error">{message}</Message>}
 
         <div className='campo'>
-          <label htmlFor='nombre'>Tipo de gasto</label>
+          <label htmlFor='nombre'>Tipo de gasto:</label>
           <input
           id="nombre"
           type="text"
@@ -63,7 +63,7 @@ const Modal = ({setModal, animateModal, setAnimateModal, saveExpense}) => {
         </div>
 
         <div className='campo'>
-          <label htmlFor='cantidad'>Cantidad</label>
+          <label htmlFor='cantidad'>Precio:</label>
           <input
           id="cantidad"
           type="number"
@@ -74,7 +74,7 @@ const Modal = ({setModal, animateModal, setAnimateModal, saveExpense}) => {
         </div>
 
         <div className='campo'>
-          <label htmlFor='cantegoría'>Cantegoría</label>
+          <label htmlFor='cantegoría'>Cantegoría:</label>
           <select
           id="categoria"
           value={category}

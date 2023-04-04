@@ -1,11 +1,15 @@
 import { useState } from 'react'
+import Message from './Message'
 import closeIcon from '../assets/img/cerrar.svg'
 
-const Modal = ({setModal, animateModal, setAnimateModal}) => {
+const Modal = ({setModal, animateModal, setAnimateModal, saveExpense}) => {
 
+  
+    const [message, setMessage] = useState('')
     const [name, setName] = useState('')
     const [quantity, setQuantity] = useState('')
     const [category, setCategory] = useState('')
+
 
 
 
@@ -17,6 +21,19 @@ const Modal = ({setModal, animateModal, setAnimateModal}) => {
           setModal(false)
         }, 500);
     }
+    const handleSubmit = e => {
+      e.preventDefault();
+
+      if ([ name, quantity, category ].includes('')) {
+        setMessage('Todos los campos son obligatorios')
+        setTimeout(() => {
+          setMessage('')
+        }, 3000);
+        return;
+       
+      }
+      saveExpense({name, quantity, category})
+    }
   return (
     <div className="modal">
        <div className="cerrar-modal">
@@ -27,8 +44,12 @@ const Modal = ({setModal, animateModal, setAnimateModal}) => {
         />
        </div>
 
-       <form className={`formulario ${animateModal ? "animar" :"cerrar"} `}>
+       <form
+        onSubmit={handleSubmit}
+        className={`formulario ${animateModal ? "animar" :"cerrar"} `}
+        >
         <legend>Nuevo gasto</legend>
+        {message && <Message tipo="error">{message}</Message>}
 
         <div className='campo'>
           <label htmlFor='nombre'>Tipo de gasto</label>

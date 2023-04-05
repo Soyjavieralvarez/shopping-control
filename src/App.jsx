@@ -35,15 +35,30 @@ function App() {
   }
 
   const saveExpense = expense =>{
-        expense.id = generateId();
-        expense.date = Date.now();
-        setExpenses([...expenses, expense])
-
-        setAnimateModal(false)
-        setTimeout(() => {
-          setModal(false)
-        }, 1000);
+        if(expense.id) {
+          //update
+          const updateExpenses = expenses.map( expenseState =>  expenseState.id === 
+          expense.id ? expense : expenseState)
+          setExpenses(updateExpenses)
+        }else {
+          //New expense
+          expense.id = generateId();
+          expense.date = Date.now();
+          setExpenses([...expenses, expense])
+        }
+          setAnimateModal(false)
+          setTimeout(() => {
+            setModal(false)
+          }, 1000);
   }
+
+  const eliminateExpense = id => {
+    const updateExpenses = expenses.filter(expense => expense.id !== id);
+
+    setExpenses(updateExpenses)
+  }
+
+
   return (
    <div className={modal ? 'fijar' : ''}>
     <Header
@@ -61,6 +76,7 @@ function App() {
         <ListExpenses 
           expenses={expenses}
           setEditExpense={setEditExpense}
+          eliminateExpense={eliminateExpense}
         />
       </main>
     <div className='nuevo-gasto'>

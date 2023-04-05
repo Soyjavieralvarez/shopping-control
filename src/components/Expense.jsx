@@ -28,24 +28,22 @@ import IconMeat from '../assets/img/IconMeat.svg'
 
 
 const iconDictionary = {
-    
-          carniceria : IconMeat,
-          pescaderia : IconFish,
-          fruteria : IconFruit,
-          precocinado : IconSnowFlake,
-          despensa : IconReceipt,
-          bebidas : IconGlassFull,
-          congelados : IconIceCream,
-          panaderia : IconBread,
-          mascota : IconDogBowl,
-          bebe : IconMoodKids,
-          hogar : IconSmartHome,
-          personal : IconBath,
-          otros : IconOthers,
-         
+            carniceria : IconMeat,
+            pescaderia : IconFish,
+            fruteria : IconFruit,
+            precocinado : IconSnowFlake,
+            despensa : IconReceipt,
+            bebidas : IconGlassFull,
+            congelados : IconIceCream,
+            panaderia : IconBread,
+            mascota : IconDogBowl,
+            bebe : IconMoodKids,
+            hogar : IconSmartHome,
+            personal : IconBath,
+            otros : IconOthers,
 }
 
-const Expense = ({expense, setEditExpense}) => {
+const Expense = ({expense, setEditExpense, eliminateExpense}) => {
     const { category, name, quantity, id, date } = expense;
 
     const leadingActions = () => (
@@ -58,7 +56,10 @@ const Expense = ({expense, setEditExpense}) => {
 
     const trailingActions = () => (
         <TrailingActions>
-            <SwipeAction onClick={() => console.log('eliminar...')}>
+            <SwipeAction
+                onClick={() => eliminateExpense(id)}
+                destructive={true}
+                >
                 Eliminar gasto
             </SwipeAction>
         </TrailingActions>

@@ -14,18 +14,22 @@ const Modal = ({
     const [name, setName] = useState('')
     const [quantity, setQuantity] = useState('')
     const [category, setCategory] = useState('')
+    const [date, setDate] = useState('')
+    const [id, setID] = useState('')
 
       useEffect(() => {
         if( Object.keys(editExpense).length > 0 ) {
           setName(editExpense.name)
           setQuantity(editExpense.quantity)
           setCategory(editExpense.category)
+          setID(editExpense.id)
+          setDate(editExpense.date)
         }
       }, [])
 
     const maskModal = () => {
         
-        setAnimateModal(false)
+        // setAnimateModal(false)
 
         setTimeout(() => {
           setModal(false)
@@ -34,7 +38,7 @@ const Modal = ({
     const handleSubmit = e => {
       e.preventDefault();
 
-      if ([ name, quantity, category ].includes('')) {
+      if ([ name, quantity, category, ].includes('')) {
         setMessage('Todos los campos son obligatorios')
         setTimeout(() => {
           setMessage('')
@@ -42,7 +46,7 @@ const Modal = ({
         return;
        
       }
-      saveExpense({name, quantity, category})
+      saveExpense({name, quantity, category, id, date})
     }
   return (
     <div className="modal">
@@ -58,7 +62,7 @@ const Modal = ({
         onSubmit={handleSubmit}
         className={`formulario ${animateModal ? "animar" :"cerrar"} `}
         >
-        <legend>Nuevo gasto</legend>
+        <legend>{editExpense.name ? "Editar gasto" : "Nuevo gasto"}</legend>
         {message && <Message tipo="error">{message}</Message>}
 
         <div className='campo'>
@@ -109,7 +113,7 @@ const Modal = ({
         </div>
         <input
           type="submit"
-          value="añadir gasto"
+          value={editExpense.name ? "Guardar cambios" : "Añadir gasto"}
         />
        </form>
     </div>

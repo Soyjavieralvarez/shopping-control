@@ -1,21 +1,31 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Message from './Message'
 import closeIcon from '../assets/img/cerrar.svg'
 
-const Modal = ({setModal, animateModal, setAnimateModal, saveExpense}) => {
+const Modal = ({
+      setModal,
+      animateModal,
+      setAnimateModal,
+      saveExpense,
+      editExpense
+    }) => {
 
-  
     const [message, setMessage] = useState('')
     const [name, setName] = useState('')
     const [quantity, setQuantity] = useState('')
     const [category, setCategory] = useState('')
 
-
-
+      useEffect(() => {
+        if( Object.keys(editExpense).length > 0 ) {
+          setName(editExpense.name)
+          setQuantity(editExpense.quantity)
+          setCategory(editExpense.category)
+        }
+      }, [])
 
     const maskModal = () => {
         
-        // setAnimateModal(false)
+        setAnimateModal(false)
 
         setTimeout(() => {
           setModal(false)

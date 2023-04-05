@@ -1,4 +1,13 @@
 import React from 'react'
+import {
+    LeadingActions,
+    SwipeableList,
+    SwipeableListItem,
+    SwipeAction,
+    TrailingActions
+} from 'react-swipeable-list';
+import 'react-swipeable-list/dist/styles.css'
+
 import { formatDate } from '../helpers';
 
 import IconBath from '../assets/img/IconBath.svg'
@@ -38,24 +47,46 @@ const iconDictionary = {
 
 const Expense = ({expense}) => {
     const { category, name, quantity, id, date } = expense;
+
+    const leadingActions = () => (
+        <LeadingActions>
+            <SwipeAction onClick={() => console.log('editar...')}>
+                Editar gasto
+            </SwipeAction>
+        </LeadingActions>
+    )
+
+    const trailingActions = () => (
+        <TrailingActions>
+            <SwipeAction onClick={() => console.log('eliminar...')}>
+                Eliminar gasto
+            </SwipeAction>
+        </TrailingActions>
+    )
   return (
+    <SwipeableList>
+    <SwipeableListItem
+    leadingActions={leadingActions()}
+    trailingActions={trailingActions()}>
     <div className='gasto sombra'>
-        <div className='contenido-gasto'>
-        <img
-        src={iconDictionary[category]}
-        alt="Iconos de gastos"
-        />
-            <div className='descripcion-gasto'>
-                <p className='categoria'>{category}</p>
-                <p className='nombre-gasto'>{name}</p>
-                <p className='fecha-gasto'>
-                    Gasto realizado el: {''}
-                    <span>{formatDate(date)}</span>
-                </p>
+            <div className='contenido-gasto'>
+            <img
+            src={iconDictionary[category]}
+            alt="Iconos de gastos"
+            />
+                <div className='descripcion-gasto'>
+                    <p className='categoria'>{category}</p>
+                    <p className='nombre-gasto'>{name}</p>
+                    <p className='fecha-gasto'>
+                        Gasto realizado el: {''}
+                        <span>{formatDate(date)}</span>
+                    </p>
+                </div>
             </div>
-        </div>
         <p className='cantidad-gasto'>{quantity}€</p>
     </div>
+    </SwipeableListItem>
+    </SwipeableList>
   )
 }
 

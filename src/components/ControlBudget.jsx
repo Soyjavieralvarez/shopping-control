@@ -7,9 +7,12 @@ const ControlBudget = ({expenses, budget}) => {
 
     useEffect (() => {
         const totalSpent = expenses.reduce( (total, spent) => spent.quantity + total, 0 );
-        console.log(totalSpent)
+       
+        const totalAvailable = budget - totalSpent;
 
-        setSpent(totalSpent)
+        
+        setavailable(totalAvailable)
+        setSpent(totalSpent);
     }, [expenses])
 
     const formatQuantity = (quantity) => {

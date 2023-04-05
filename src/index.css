@@ -407,7 +407,7 @@ body .modal {
 }
 
 .swipe-action__trailing {
-  background-color: #db2777;
+  background-color: #f60808f7;
   margin-bottom: 2rem;
   color: var(--blanco);
 }
@@ -417,5 +417,6 @@ body .modal {
   justify-content: center;
   align-items: center;
   font-size: 2.4rem;
+  font-weight: bolder;
   text-align: right;
 }

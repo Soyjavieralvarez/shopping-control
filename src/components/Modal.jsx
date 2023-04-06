@@ -90,27 +90,27 @@ const Modal = ({
         </div>
 
         <div className='campo'>
-          <label htmlFor='cantegoría'>Cantegoría:</label>
-          <select
-          id="categoria"
-          value={category}
-          onChange={e => setCategory(e.target.value)}
-          >
-          <option value="">---Selecciona la categoría---</option>
-          <option value="carniceria">Carnicería</option>
-          <option value="charcuteria">Charcutería</option>
-          <option value="pescaderia">Pescadería</option>
-          <option value="fruteria">Frutas y verduras</option>
-          <option value="precocinado">Cocina precocinada</option>
-          <option value="despensa">Despensa</option>
-          <option value="bebidas">Bebidas y bodega</option>
-          <option value="congelados">Congelados</option>
-          <option value="panaderia">Panadería y horno</option>
-          <option value="mascota">Mascotas</option>
-          <option value="bebe">Bebé</option>
-          <option value="hogar">Cuidado del hogar</option>
-          <option value="personal">Cuidado personal</option>
-          <option value="otros">Otros</option>
+              <label htmlFor='cantegoría'>Cantegoría:</label>
+              <select
+              id="categoria"
+              value={category}
+              onChange={e => setCategory(e.target.value)}
+              >
+              <option value="">---Selecciona la categoría---</option>
+              <option value="carniceria">Carnicería</option>
+              <option value="charcuteria">Charcutería</option>
+              <option value="pescaderia">Pescadería</option>
+              <option value="fruteria">Frutas y verduras</option>
+              <option value="precocinado">Cocina precocinada</option>
+              <option value="despensa">Despensa</option>
+              <option value="bebidas">Bebidas y bodega</option>
+              <option value="congelados">Congelados</option>
+              <option value="panaderia">Panadería y horno</option>
+              <option value="mascota">Mascotas</option>
+              <option value="bebe">Bebé</option>
+              <option value="hogar">Cuidado del hogar</option>
+              <option value="personal">Cuidado personal</option>
+              <option value="otros">Otros</option>
           </select>
         </div>
         <input

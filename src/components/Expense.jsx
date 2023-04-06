@@ -24,9 +24,6 @@ import IconSmartHome from '../assets/img/IconSmartHome.svg'
 import IconSnowFlake from '../assets/img/IconSnowFlake.svg'
 import IconMeat from '../assets/img/IconMeat.svg'
 
-
-
-
 const iconDictionary = {
             carniceria : IconMeat,
             pescaderia : IconFish,

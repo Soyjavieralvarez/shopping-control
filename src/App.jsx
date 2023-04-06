@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Header from './components/Header'
+import Filters from './components/Filters';
 import ListExpenses from './components/ListExpenses';
 import Modal from './components/Modal';
 import { generateId } from './helpers';
@@ -8,12 +9,19 @@ import newExpenseIcon from './assets/img/nuevo-gasto.svg'
 
 function App() {
   
-  const [expenses, setExpenses] = useState([])
-  const [budget, setBudget] = useState(0);
+  const [expenses, setExpenses] = useState(
+    localStorage.getItem('expenses') ? JSON.parse(localStorage.getItem('expenses')) : []
+  );
+  const [budget, setBudget] = useState(
+    Number(localStorage.getItem('budget')) ?? 0
+  );
   const [isValidBudget, setIsValidBudget] = useState(false)
   const [modal, setModal] = useState(false)
   const [animateModal, setAnimateModal] = useState (false)
   const [editExpense, setEditExpense] = useState({})
+
+  const [filter, setFilter] = useState('')
+  const [leakedExpenses, setLeakedExpenses] = useState([])
   
   useEffect(() => {
     if( Object.keys(editExpense).length > 0 ) {
@@ -23,7 +31,32 @@ function App() {
       setAnimateModal(true)
       },500);
     }
-  }, [editExpense])
+  }, [editExpense]);
+
+  useEffect(() => {
+    localStorage.setItem('budget', budget) ?? 0
+  }, [budget]);
+
+  useEffect(() => {
+    localStorage.setItem('expenses', JSON.stringify(expenses)?? []);
+    
+  }, [expenses]);
+
+  useEffect (() =>{
+    if(filter) {
+      //filter expenses by categories
+      const filtersExpenses = expenses.filter(expense => expense.category === filter)
+      setLeakedExpenses(filtersExpenses)
+    }
+  }, [filter]);
+
+  useEffect (() => {
+    const budgetLS = Number(localStorage.getItem('budget')) ?? 0;
+
+    if(budgetLS > 0) {
+      setIsValidBudget(true)
+    }
+  }, []);
 
   const handleNewExpense = () => {
     setModal(true)
@@ -74,6 +107,10 @@ function App() {
      {isValidBudget && (
       <>
       <main>
+      <Filters 
+          filter={filter}
+          setFilter={setFilter}
+      />
         <ListExpenses 
           expenses={expenses}
           setEditExpense={setEditExpense}

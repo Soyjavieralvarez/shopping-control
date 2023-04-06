@@ -210,7 +210,7 @@ header h1 {
   width: 100%;
 }
 .contenido-presupuesto p {
-  font-weight: 400;
+  font-weight: 900;
   color: var(--gris-oscuro);
   font-size: 2.4rem;
   text-align: center;
@@ -223,6 +223,7 @@ header h1 {
 .contenido-presupuesto p.negativo,
 .contenido-presupuesto p.negativo span {
   color: red;
+  font-weight: bold;
 }
 .contenido-presupuesto span {
   font-weight: 900;

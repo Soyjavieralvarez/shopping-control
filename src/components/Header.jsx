@@ -6,6 +6,7 @@ import logo from '../assets/img/logo-shopping.png'
 
 const Header = ({ 
     expenses,
+    setExpenses,
     budget,
     setBudget,
     isValidBudget,
@@ -21,7 +22,10 @@ const Header = ({
       {isValidBudget ? (
         <ControlBudget
         expenses={expenses}
+        setExpenses={setExpenses}
         budget={budget}
+        setBudget={setBudget}
+        setIsValidBudget={setIsValidBudget}
          />
       ): (
         <NewBudget

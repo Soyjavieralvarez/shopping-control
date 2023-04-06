@@ -85,7 +85,7 @@ const Modal = ({
         </div>
 
         <div className='campo'>
-              <label htmlFor='cantegoría'>Cantegoría:</label>
+              <label htmlFor='cantegoría'>Categoría:</label>
               <select
               id="categoria"
               value={category}

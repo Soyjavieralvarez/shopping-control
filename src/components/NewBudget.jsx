@@ -4,7 +4,8 @@ import Message from './Message'
 const NewBudget = ({
     budget,
     setBudget,
-    setIsValidBudget}) => {
+    setIsValidBudget
+    }) => {
 
     const [message, setMessage] = useState('')
 

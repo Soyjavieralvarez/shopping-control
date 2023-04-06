@@ -30,12 +30,7 @@ const Modal = ({
 
     const maskModal = () => {
         
-        // setAnimateModal(false)
-        setAnimateModal({})
-
-        setTimeout(() => {
-          setModal(false)
-        }, 500);
+        setModal(false)
     }
     const handleSubmit = e => {
       e.preventDefault();
@@ -55,7 +50,7 @@ const Modal = ({
        <div className="cerrar-modal">
        <img
        src={closeIcon}
-       alt="icono de cierre"
+       alt="icono de cierre de modal"
        onClick={maskModal} 
         />
        </div>

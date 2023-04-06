@@ -7,6 +7,7 @@ import { generateId } from './helpers';
 import newExpenseIcon from './assets/img/nuevo-gasto.svg'
 
 
+
 function App() {
   
   const [expenses, setExpenses] = useState(
